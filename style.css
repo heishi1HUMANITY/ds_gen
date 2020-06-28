@@ -20,11 +20,12 @@
   padding: 32px;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87);
+  overflow: visible;
   background-color: white;
   filter: drop-shadow(0px 0px 10px #888888);
 }
 
-#controller div {
+#controller .wrapper_div {
   width: 100%;
   display: flex;
   align-items: center;
@@ -32,7 +33,10 @@
   height: 50px;
 }
 
-#controller div .inner_div {
+#controller .wrapper_div .inner_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 50%;
 }
 
@@ -55,4 +59,20 @@
   height: 40px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.87);
   text-align: center;
+}
+
+#controller #blur .mdc-slider {
+  width: 100%;
+}
+
+#controller #code {
+  height: 80px;
+  color: #ffffff;
+  font-size: 0.9em;
+  background-color: #0f0f0f;
+  padding: 16px;
+}
+
+#controller #code p {
+  line-height: calc((80px - 32px) / 2);
 }

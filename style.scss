@@ -19,13 +19,17 @@
     padding: 32px;
     font-size: 1em;
     color: rgba(0, 0, 0, 0.87);
-    div{
+    overflow: visible;
+    .wrapper_div{
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         height: 50px;
         .inner_div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             width: 50%;
         }
     }
@@ -47,6 +51,21 @@
             height: 40px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.87);
             text-align: center;
+        }
+    }
+    #blur{
+        .mdc-slider{
+            width: 100%;
+        }
+    }
+    #code{
+        height: 80px;
+        color: #ffffff;
+        font-size: 0.9em;
+        background-color: #0f0f0f;
+        padding: 16px;
+        p{
+            line-height: calc((80px - 32px) / 2);
         }
     }
     // test-css
