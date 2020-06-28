@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>drop-shadow generater</title>
+        <link rel="stylesheet" href="./node_modules/destyle.css/destyle.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container">
+            <div id="target"></div>
+            <div id="controller">
+                <div id="color">
+                    <p>COLOR</p>
+                    <div class="inner_div">
+                        <input type="color" id="color_input_map">
+                        <div id="color_div_map"></div>
+                        <input type="text" id="color_input_hex">
+                    </div>
+                </div>
+                <div id="blur">
+                    <p>BLUR RADIUS</p>
+                    <div class="inner_div">
+                        <div class="mdc-slider" tabindex="0" role="slider"
+                             aria-valuemin="0" aria-valuemax="100" aria-valuenow="10"
+                             aria-label="Select Value">
+                            <div class="mdc-slider__track-container">
+                                <div class="mdc-slider__track"></div>
+                                </div>
+                            <div class="mdc-slider__thumb-container">
+                                <svg class="mdc-slider__thumb" width="21" height="21">
+                                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                                </svg>
+                                <div class="mdc-slider__focus-ring"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
