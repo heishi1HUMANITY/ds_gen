@@ -5,8 +5,10 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>drop-shadow generater</title>
         <link rel="stylesheet" href="./node_modules/destyle.css/destyle.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        </style>
         <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="container">
@@ -15,9 +17,11 @@
                 <div id="color">
                     <p>COLOR</p>
                     <div class="inner_div">
-                        <input type="color" id="color_input_map">
-                        <div id="color_div_map"></div>
-                        <input type="text" id="color_input_hex">
+                        <input type="color" id="color_input_map" value="#ffffff">
+                        <label for="color_input_map">
+                            <div id="color_div_map"></div>
+                        </label>
+                        <input type="text" id="color_input_hex" value="#ffffff" placeholder="COLORHEX">
                     </div>
                 </div>
                 <div id="blur">
@@ -40,6 +44,6 @@
                 </div>
             </div>
         </div>
-        <script src="./script.js"></script>
+        <script type="module" src="./mdc_script.js"></script>
     </body>
 </html>
