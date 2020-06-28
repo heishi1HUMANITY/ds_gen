@@ -1,3 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@forward "@material/feature-targeting/variables" as mdc-feature-*;
+@forward "@material/feature-targeting/mixins" as mdc-feature-*;
+@forward "@material/theme/constants" as mdc-theme-*;
+@forward "@material/theme/variables" as mdc-theme-*;
+@forward "@material/typography/variables" as mdc-typography-*;
+@forward "@material/rtl/variables" as mdc-rtl-*;
+@forward "variables" as mdc-slider-*;
+@forward "@material/theme/mixins" as mdc-theme-*;
+@forward "@material/typography/mixins" as mdc-* hide mdc-base, mdc-baseline-bottom, mdc-baseline-strut-, mdc-baseline-top, mdc-core-styles, mdc-overflow-ellipsis;
+@forward "@material/typography/mixins" as mdc-typography-* hide mdc-typography-typography;
+@forward "@material/rtl/mixins" as mdc-* hide mdc-property-, mdc-reflexive, mdc-reflexive-box, mdc-reflexive-position, mdc-reflexive-property;
+@forward "@material/rtl/mixins" as mdc-rtl-* hide mdc-rtl-rtl;
+@forward "keyframes" as mdc-slider-*;
+@forward "mixins" as mdc-slider-*;
+@forward "@material/feature-targeting/functions" as mdc-feature-*;
+@forward "@material/theme/functions" as mdc-theme-*;
+@forward "@material/typography/functions" as mdc-typography-*;
+@forward "mdc-slider";
 #container {
   height: 100vh;
   width: 100vw;
@@ -15,7 +34,6 @@
 
 #controller {
   font-family: 'Roboto', sans-serif;
-  height: 265px;
   width: 400px;
   padding: 32px;
   font-size: 1em;
@@ -63,6 +81,7 @@
 
 #controller #blur .mdc-slider {
   width: 100%;
+  --mdc-theme-secondary: #ffffff;
 }
 
 #controller #code {
@@ -75,4 +94,12 @@
 
 #controller #code p {
   line-height: calc((80px - 32px) / 2);
+}
+
+#controller #code .property {
+  color: #2E8CF6;
+}
+
+#controller #code #function {
+  color: #E6F845;
 }

@@ -1,4 +1,70 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const {MDCSlider} = require('@material/slider');
+
+const change_col_blur = (color, val) => {
+    val = val.toFixed(1);
+    color = color.replace(/\#/, '');
+    let rgb = [];
+    for(let i = 0; i < 6; i += 2){
+        rgb.push(color[i] + color[i + 1]);
+    }
+    for(let i of rgb){
+        if(parseInt(i, 16) < (255 / 2)){
+            color_div.setAttribute('style', 'color: #ffffff');
+            blur_div.setAttribute('style', 'color: #ffffff');
+            mdc_slider.setAttribute('style', '--mdc-theme-secondary: #ffffff;');
+            break;
+        }
+        if(parseInt(i, 16) > (255 / 2)){
+            color_div.setAttribute('style', 'color: rgba(0, 0, 0, 0.87)');
+            blur_div.setAttribute('style', 'color: rgba(0, 0, 0, 0.87)');
+            mdc_slider.setAttribute('style', '--mdc-theme-secondary: #000000;');
+        }
+    }
+    let shadow = [];
+    for(let i of rgb){
+        let tmp = parseInt(i, 16) - parseInt(77, 16);
+        if(tmp <= 0){
+            tmp = 0;
+        }
+        shadow.push(('00' + tmp.toString(16)).slice(-2));
+    }
+    for(let i = 0; i < 3; i++){
+        rgb[i] = parseInt(rgb[i], 16);
+    }
+    if(rgb.reduce((p, c) => p + c) <= 15) shadow = ['88', '88', '88'];
+    color = '#' + color;
+    shadow = '#' + shadow.join('');
+    color_input_map.value = color;
+    color_div_map.setAttribute('style', `background-color: ${color}; filter: drop-shadow(0px 0px ${val}px ${shadow})`);
+    color_input_hex.value = color;
+    code_color_bg.innerText = color;
+    code_color_ds.innerText = shadow;
+    code_blur.innerText = `${val}px`;
+    container.setAttribute('style', `background-color: ${color}`);
+    target.setAttribute('style', `background-color: ${color}; filter: drop-shadow(0px 0px ${val}px ${shadow})`);
+    controller.setAttribute('style', `background-color: ${color}; filter: drop-shadow(0px 0px ${val}px ${shadow})`);
+};
+
+const slider = new MDCSlider(document.querySelector('.mdc-slider'));
+slider.listen('MDCSlider:input', () => {
+    console.log('hoge');
+    change_col_blur(color_input_hex.value, slider.value);
+});
+
+color_input_map.addEventListener('input', () => {
+    change_col_blur(color_input_map.value, slider.value);
+});
+
+color_input_hex.addEventListener('change', () => {
+    change_col_blur(color_input_hex.value, slider.value);
+});
+
+const init = () => {
+    change_col_blur('627fd5', slider.value);
+};
+init();
+},{"@material/slider":2}],2:[function(require,module,exports){
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -1479,9 +1545,4 @@ __export(__webpack_require__(/*! ./foundation */ "./packages/mdc-slider/foundati
 /******/ });
 });
 
-},{}],2:[function(require,module,exports){
-const {MDCSlider} = require('@material/slider');
-
-const slider = new MDCSlider(document.querySelector('.mdc-slider'));
-slider.listen('MDCSlider:change', () => console.log(`Value changed to ${slider.value}`));
-},{"@material/slider":1}]},{},[2]);
+},{}]},{},[1]);
