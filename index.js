@@ -100,7 +100,6 @@ offset_y_slider.listen('MDCSlider:input', () => {
 });
 
 lighting_scale_slider.listen('MDCSlider:input', () => {
-    console.log(lighting_scale_slider.value);
     let y = offset_y_slider.value * lighting_scale_slider.value.toFixed(1);
     let x = offset_x_slider.value * lighting_scale_slider.value.toFixed(1);
     change_col_blur_offset(color_input_hex.value, blur_slider.value, x, y);
