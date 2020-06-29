@@ -5,13 +5,22 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>drop-shadow generater</title>
         <link rel="stylesheet" href="./node_modules/destyle.css/destyle.css">
-        <link rel="stylesheet" href="./style.css">
         <link rel="stylesheet" href="./node_modules/@material/slider/dist/mdc.slider.css">
+        <link rel="stylesheet" href="./node_modules/@material/list/dist/mdc.list.css">
+        <link rel="stylesheet" href="./node_modules/@material/menu-surface/dist/mdc.menu-surface.css">
+        <link rel="stylesheet" href="./node_modules/@material/menu/dist/mdc.menu.css">
+        <link rel="stylesheet" href="./node_modules/@material/select/dist/mdc.select.css">
+        <link rel="stylesheet" href="./node_modules/@material/icon-button/dist/mdc.icon-button.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
         <div id="container">
+
             <div id="target"></div>
+
             <div id="controller">
+
                 <div id="color" class="wrapper_div">
                     <p>COLOR</p>
                     <div class="inner_div">
@@ -22,12 +31,23 @@
                         <input type="text" id="color_input_hex" value="#ffffff" placeholder="COLORHEX">
                     </div>
                 </div>
+
+                <div id="sizing" class="wrapper_div">
+                    <p>BOX SIZING</p>
+                    <div class="inner_div">
+                        <p>X: </p>
+                        <input type="text" id="x_input" value="200" class="sizing_input">
+                        <p>Y: </p>
+                        <input type="text" id="y_input" value="200" class="sizing_input">
+                    </div>
+                </div>
+
                 <div id="blur" class="wrapper_div">
                     <p>BLUR RADIUS</p>
                     <div class="inner_div">
                         <div class="mdc-slider" tabindex="0" role="slider"
                              aria-valuemin="0" aria-valuemax="100" aria-valuenow="10"
-                             aria-label="Select Value">
+                             aria-label="Select Value" id="blur_slider">
                             <div class="mdc-slider__track-container">
                                 <div class="mdc-slider__track"></div>
                                 </div>
@@ -40,10 +60,139 @@
                         </div>
                     </div>
                 </div>
-                <div id="code">
-                    <p><span class="property">background-color</span>: <span id="code_color_bg">#ffffff</span></p>
-                    <p><span class="property">filter</span>: <span id="function">drop-shadow</span>(0px 0px <span id="code_blur">10px</span> <span id="code_color_ds">#888888</span>)</p>
+
+                <div id="light" class="wrapper_div">
+                    <p>LIGHTING</p>
+                    <div class="inner_div">
+                        <div class="mdc-select" id="lighting_mdc_select">
+                            <div class="mdc-select__anchor"
+                                 role="button"
+                                 aria-haspopup="listbox"
+                                 aria-labelledby="demo-label demo-selected-text">
+                                <span class="mdc-select__ripple"></span>
+                                <span id="selected-text" class="mdc-select__selected-text"></span>
+                                <span class="mdc-select__dropdown-icon">
+                                    <svg
+                                        class="mdc-select__dropdown-icon-graphic"
+                                        viewBox="7 10 10 5">
+                                        <polygon
+                                            class="mdc-select__dropdown-icon-inactive"
+                                            stroke="none"
+                                            fill-rule="evenodd"
+                                            points="7 10 12 15 17 10">
+                                        </polygon>
+                                        <polygon
+                                            class="mdc-select__dropdown-icon-active"
+                                            stroke="none"
+                                            fill-rule="evenodd"
+                                            points="7 15 12 10 17 15">
+                                        </polygon>
+                                    </svg>
+                                </span>
+                                <span id="demo-label" class="mdc-floating-label mdc-floating-label--float-above"></span>
+                                <span class="mdc-line-ripple"></span>
+                            </div>
+                          
+                            <div class="mdc-select__menu mdc-menu mdc-menu-surface" role="listbox">
+                                <ul class="mdc-list">
+                                    <li class="mdc-list-item" data-value="top left" role="option">
+                                        <span class="mdc-list-item__text">top left</span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="top center" role="option">
+                                        <span class="mdc-list-item__text">top center</span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="top right" role="option">
+                                        <span class="mdc-list-item__text">top right</span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="center left" role="option">
+                                        <span class="mdc-list-item__text">center left</span>
+                                    </li>
+                                    <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="center" role="option">
+                                        <span class="mdc-list-item__text">center</span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="center right" role="option">
+                                        <span class="mdc-list-item__text">center right</span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="bottom left" role="option">
+                                        <span class="mdc-list-item__text">bottom left</span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="bottom center" role="option">
+                                        <span class="mdc-list-item__text">bottom center</span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="bottom right" role="option">
+                                        <span class="mdc-list-item__text">bottom right</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div id="lighting_scale" class="wrapper_div">
+                    <p>LIGHTING SCALE</p>
+                    <div class="inner_div">
+                        <div class="mdc-slider" tabindex="0" role="slider"
+                             aria-valuemin="1" aria-valuemax="10" aria-valuenow="1"
+                             aria-label="Select Value" id="lighting_scale_slider">
+                            <div class="mdc-slider__track-container">
+                                <div class="mdc-slider__track"></div>
+                                </div>
+                            <div class="mdc-slider__thumb-container">
+                                <svg class="mdc-slider__thumb" width="21" height="21">
+                                    <circle cx="10" cy="10" r="7"></circle>
+                                </svg>
+                                <div class="mdc-slider__focus-ring"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="offset_x" class="wrapper_div">
+                    <p>OFFSET X</p>
+                    <div class="inner_div">
+                        <div class="mdc-slider" tabindex="0" role="slider"
+                             aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0"
+                             aria-label="Select Value" id="offset_x_slider">
+                            <div class="mdc-slider__track-container">
+                                <div class="mdc-slider__track"></div>
+                                </div>
+                            <div class="mdc-slider__thumb-container">
+                                <svg class="mdc-slider__thumb" width="21" height="21">
+                                    <circle cx="10" cy="10" r="7"></circle>
+                                </svg>
+                                <div class="mdc-slider__focus-ring"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="offset_y" class="wrapper_div">
+                    <p>OFFSET Y</p>
+                    <div class="inner_div">
+                        <div class="mdc-slider" tabindex="0" role="slider"
+                             aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0"
+                             aria-label="Select Value" id="offset_y_slider">
+                            <div class="mdc-slider__track-container">
+                                <div class="mdc-slider__track"></div>
+                                </div>
+                            <div class="mdc-slider__thumb-container">
+                                <svg class="mdc-slider__thumb" width="21" height="21">
+                                    <circle cx="10" cy="10" r="7"></circle>
+                                </svg>
+                                <div class="mdc-slider__focus-ring"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="code">
+                    <button class="mdc-icon-button material-icons" id="copy">content_copy</button>
+                    <p><span class="property">height</span>: <span id="code_height">200px</span>;</p>
+                    <p><span class="property">width</span>: <span id="code_width">200px</span>;</p>
+                    <p><span class="property">background-color</span>: <span id="code_color_bg">#ffffff</span>;</p>
+                    <p><span class="property">filter</span>: <span id="function">drop-shadow</span>(<span id="code_offset_x">0px</span> <span id="code_offset_y">0px</span> <span id="code_blur">10px</span> <span id="code_color_ds">#888888</span>);</p>
+                </div>
+                
             </div>
         </div>
         <script src="./variables.js"></script>

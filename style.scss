@@ -17,7 +17,7 @@
 }
 #controller{
     font-family: 'Roboto', sans-serif;
-    width: 400px;
+    width: 450px;
     padding: 32px;
     font-size: 1em;
     color: rgba(0, 0, 0, 0.87);
@@ -33,6 +33,7 @@
             align-items: center;
             justify-content: space-between;
             width: 50%;
+            height: 80%;
         }
     }
     #color{
@@ -55,18 +56,47 @@
             text-align: center;
         }
     }
-    #blur{
-        .mdc-slider{
-            width: 100%;
-            --mdc-theme-secondary: #ffffff;
+    #sizing{
+        text-align: center;
+        input{
+            width: 40%;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+        }
+    }
+    .mdc-slider{
+        width: 100%;
+        --mdc-theme-secondary: #ffffff;
+    }
+    #light{
+        text-align: center;
+        .mdc-select__dropdown-icon{
+            fill: rgba(255, 255, 255, 1);
+            color: #ffffff;
+        }
+        .mdc-line-ripple::before{
+            border-bottom-color: #ffffff;
+        }
+        .mdc-select{
+            --mdc-theme-primary: #ffffff;
+            min-width: 100%;
+            height: 35px;
+        }
+        .mdc-select__anchor{
+            background-color: #627fd5;
+            height: 35px;
+            // background-color: #000;
+        }
+        #selected-text{
+            color: white;
+            transform: translateY(-60%);
         }
     }
     #code{
-        height: 80px;
         color: #ffffff;
         font-size: 0.9em;
         background-color: #0f0f0f;
         padding: 16px;
+        position: relative;
         p{
             line-height: calc((80px - 32px) / 2);
         }
@@ -75,6 +105,14 @@
         }
         #function{
             color: #E6F845;
+        }
+        .mdc-icon-button::after{
+            background-color: #ffffff;
+        }
+        #copy{
+            position: absolute;
+            top: 16px;
+            right: 16px;
         }
     }
     // test-css

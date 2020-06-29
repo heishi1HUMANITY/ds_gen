@@ -34,7 +34,7 @@
 
 #controller {
   font-family: 'Roboto', sans-serif;
-  width: 400px;
+  width: 450px;
   padding: 32px;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87);
@@ -56,6 +56,7 @@
   align-items: center;
   justify-content: space-between;
   width: 50%;
+  height: 80%;
 }
 
 #controller #color #color_input_map {
@@ -79,17 +80,55 @@
   text-align: center;
 }
 
-#controller #blur .mdc-slider {
+#controller #sizing {
+  text-align: center;
+}
+
+#controller #sizing input {
+  width: 40%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+}
+
+#controller .mdc-slider {
   width: 100%;
   --mdc-theme-secondary: #ffffff;
 }
 
+#controller #light {
+  text-align: center;
+}
+
+#controller #light .mdc-select__dropdown-icon {
+  fill: white;
+  color: #ffffff;
+}
+
+#controller #light .mdc-line-ripple::before {
+  border-bottom-color: #ffffff;
+}
+
+#controller #light .mdc-select {
+  --mdc-theme-primary: #ffffff;
+  min-width: 100%;
+  height: 35px;
+}
+
+#controller #light .mdc-select__anchor {
+  background-color: #627fd5;
+  height: 35px;
+}
+
+#controller #light #selected-text {
+  color: white;
+  transform: translateY(-60%);
+}
+
 #controller #code {
-  height: 80px;
   color: #ffffff;
   font-size: 0.9em;
   background-color: #0f0f0f;
   padding: 16px;
+  position: relative;
 }
 
 #controller #code p {
@@ -102,4 +141,14 @@
 
 #controller #code #function {
   color: #E6F845;
+}
+
+#controller #code .mdc-icon-button::after {
+  background-color: #ffffff;
+}
+
+#controller #code #copy {
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
