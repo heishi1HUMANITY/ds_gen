@@ -14,35 +14,23 @@ const change_col_blur_offset = (color, blur, x, y) => {
         if(parseInt(i, 16) > 255 - 255 / 3) contrast_flag = true;
     }
     if(!contrast_flag){
-        for(let d of wrapper_div){
-            d.setAttribute('style', 'color: #ffffff');
-        }
+        wrapper_div.forEach(c => c.setAttribute('style', 'color: #ffffff'));
         color_input_hex.setAttribute('style', 'border-bottom: 1px solid #ffffff');
-        for(let s of sizing_input){
-            s.setAttribute('style', 'border-bottom: 1px solid #ffffff');
-        }
+        sizing_input.forEach(c => c.setAttribute('style', 'border-bottom: 1px solid #ffffff'));
         lighting_select.setAttribute('style', '--mdc-theme-primary: #ffffff')
         lighting_select_icon.setAttribute('style', 'fill: #ffffff')
         lighting_selected_text.setAttribute('style', 'color: #ffffff');
         lighting_ripple_before.innerHTML = '#controller #light .mdc-line-ripple::before{border-bottom-color: #ffffff;}';
-        for(let s of mdc_slider){
-            s.setAttribute('style', '--mdc-theme-secondary: #ffffff;');
-        }
+        mdc_slider.forEach(c => c.setAttribute('style', '--mdc-theme-secondary: #ffffff;'));
     }else{
-        for(let d of wrapper_div){
-            d.setAttribute('style', 'color: rgba(0, 0, 0, 0.87)');
-        }
+        wrapper_div.forEach(c => c.setAttribute('style', 'color: rgba(0, 0, 0, 0.87);'));
         color_input_hex.setAttribute('style', 'border-bottom: 1px solid rgba(0, 0, 0, 0.87)');
-        for(let s of sizing_input){
-            s.setAttribute('style', 'border-bottom: 1px solid rgba(0, 0, 0, 0.87)');
-        }
+        sizing_input.forEach(c => c.setAttribute('style', 'border-bottom: 1px solid rgba(0, 0, 0, 0.87);'));
         lighting_select_icon.setAttribute('style', 'fill: rgba(0, 0, 0, 0.87);')
         lighting_select.setAttribute('style', '--mdc-theme-primary: rgba(0, 0, 0, 0.87);')
         lighting_selected_text.setAttribute('style', 'color: rgba(0, 0, 0, 0.87);');
         lighting_ripple_before.innerHTML = '#controller #light .mdc-line-ripple::before{border-bottom-color: rgba(0, 0, 0, 0.87);}';
-        for(let s of mdc_slider){
-            s.setAttribute('style', '--mdc-theme-secondary: rgba(0, 0, 0, 0.87);');
-        }
+        mdc_slider.forEach(c => c.setAttribute('style', '--mdc-theme-secondary: rgba(0, 0, 0, 0.87);'));
     }
     let shadow = [];
     for(let i of rgb){
